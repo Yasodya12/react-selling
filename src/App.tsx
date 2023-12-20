@@ -1,13 +1,17 @@
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import React from 'react';
-import logo from './logo.svg';
+
 import './App.css';
 import {Home} from "./view/pages/Home";
-import {SignIn} from "./view/pages/SignIn";
-import {SignOut} from "./view/pages/SignOut";
+import {SignUp} from "./view/pages/SignUp";
+
 import {About} from "./view/pages/About";
 import {Profile} from "./view/pages/Profile";
 import {Header} from "./view/components/Header";
+import {SignIn} from "./view/pages/SignIn";
+import {CreateListing} from "./view/pages/CreateListing";
+import {UpdateList} from "./view/pages/UpdateList";
+
 
 function App() {
   return (
@@ -17,10 +21,12 @@ function App() {
           <Routes>
             <Route path="/" Component={Home}/>
 
-            <Route path="/sign-in" Component={SignIn}/>
-            <Route path="/sign-out" Component={SignOut}/>
+            <Route path="/sign-up" Component={SignUp}/>
+            <Route path="/sign-in" Component={SignIn} />
             <Route path="/about" Component={About}/>
             <Route path="/profile" Component={Profile}/>
+              <Route path='/create-listing' Component={CreateListing } />
+              <Route path='/update-listing/:listingId' Component={UpdateList}/>
           </Routes>
 
       </BrowserRouter>
