@@ -1,5 +1,7 @@
 import {Component} from "react";
+// import img from "../../../img/Sample_User_Icon.png";
 
+import img from "../../img/Sample_User_Icon.png";
 export class CreateListing extends Component {
     render() {
         return (
@@ -120,7 +122,7 @@ export class CreateListing extends Component {
                                 <div className='flex flex-col items-center'>
                                     <p>Regular price</p>
 
-                                        <span className='text-xs'>($ / month)</span>
+                                        <span className='text-xs'>(LKR / month)</span>
 
                                 </div>
                             </div>
@@ -139,7 +141,7 @@ export class CreateListing extends Component {
                                         <p>Discounted price</p>
 
 
-                                            <span className='text-xs'>($ / month)</span>
+                                            <span className='text-xs'>(LKR / month)</span>
 
                                     </div>
                                 </div>
@@ -178,7 +180,7 @@ export class CreateListing extends Component {
 
                                     className='flex justify-between p-3 border items-center'
                                 >
-                                    <img
+                                    <img src={img}
 
                                         alt='listing image'
                                         className='w-20 h-20 object-contain rounded-lg'

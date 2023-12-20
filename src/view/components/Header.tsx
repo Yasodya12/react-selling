@@ -1,6 +1,9 @@
 import {Component} from "react";
 import { FaSearch } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+// import img from "../../../img/Sample_User_Icon.png";
+
+import img from "../../img/Sample_User_Icon.png"
 export class Header extends Component {
     render() {
         return (
@@ -45,7 +48,7 @@ export class Header extends Component {
                         </Link>
 
 
-                            <img
+                            <img src={img}
                                 className='rounded-full h-7 w-7 object-cover'
 
 

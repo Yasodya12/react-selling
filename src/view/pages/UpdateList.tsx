@@ -1,5 +1,5 @@
 import {Component} from "react";
-import {text} from "stream/consumers";
+
 
 export class UpdateList extends Component {
     render() {
@@ -122,7 +122,7 @@ export class UpdateList extends Component {
                                 <div className='flex flex-col items-center'>
                                     <p>Regular price</p>
 
-                                        <span className='text-xs'>($ / month)</span>
+                                        <span className='text-xs'>(LKR / month)</span>
 
                                 </div>
                             </div>
@@ -140,7 +140,7 @@ export class UpdateList extends Component {
                                     <div className='flex flex-col items-center'>
                                         <p>Discounted price</p>
 
-                                            <span className='text-xs'>($ / month)</span>
+                                            <span className='text-xs'>(LKR / month)</span>
 
                                     </div>
                                 </div>
