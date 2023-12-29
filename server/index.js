@@ -1,8 +1,11 @@
 import express from 'express'
 import mongoose from "mongoose";
 import userRouter from "./routee/usersad.js"
+import authRouter from "./routee/authRoutes.js"
 
 let app = express();
+
+app.use(express.json());
 mongoose.connect("mongodb+srv://root:1234@mern-estate.xic95pt.mongodb.net/mern-estateretryWrites=true&w=majority").then(()=>{
     console.log("Connected");
 }).catch((err) =>{
@@ -16,3 +19,4 @@ app.get('/test', (req,res)=>{
    res.send('hellow word');
 });
 app.use('/server/user',userRouter);
+app.use('/server/auth',authRouter);
