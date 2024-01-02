@@ -2,16 +2,18 @@ import express from 'express'
 import mongoose from "mongoose";
 import userRouter from "./routee/usersad.js"
 import authRouter from "./routee/authRoutes.js"
-
+import cors from 'cors';
 let app = express();
 
+
 app.use(express.json());
+app.use(cors())
 mongoose.connect("mongodb+srv://root:1234@mern-estate.xic95pt.mongodb.net/mern-estateretryWrites=true&w=majority").then(()=>{
     console.log("Connected");
 }).catch((err) =>{
     console.log(err)
 })
-app.listen(3000, () =>{
+app.listen(4000, () =>{
     console.log("runing hellowsadsadasw");
 })
 
