@@ -1,21 +1,23 @@
-import {ChangeEvent, Component, useState} from 'react';
-import {Link} from "react-router-dom";
+import React, {ChangeEvent, Component, useState} from 'react';
 
-
-
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import {SignIn} from "./SignIn";
 
 export class SignUp extends Component {
 
-
     constructor(props: {} | Readonly<{}>) {
         super(props);
+
         this.state = {
 
-
+            error:null,
+            loading:false
         }
+
     }
 
     render() {
+
 
 
 
@@ -30,18 +32,45 @@ export class SignUp extends Component {
             console.log(this.state)
         };
 
+
+
         //@ts-ignore
         const handleSubmit = async (e) => {
             e.preventDefault();
-            const res = await fetch('http://localhost:4000/server/auth/signup', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(this.state),
-            });
-            const data = await res.json();
-            console.log(data);
+            this.setState({
+                loading:true
+            })
+
+
+
+                const res = await fetch('http://localhost:4000/server/auth/signup', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(this.state),
+                });
+                console.log("catct na");
+                const data = await res.json();
+                if (data.success === false) {
+                    this.setState({
+                        error:data.message,
+                        loading:false
+
+                    });
+                    return;
+                }
+
+
+
+            this.setState({
+                    loading:false,
+                });
+
+
+
+
+
         };
 
         return (
@@ -74,9 +103,11 @@ export class SignUp extends Component {
 
                     <button
 
+
                         onClick={handleSubmit}
                         className='bg-slate-700 text-white p-3 rounded-lg uppercase hover:opacity-95 disabled:opacity-80'
                     >
+
                         Sign Up
                     </button>
 
