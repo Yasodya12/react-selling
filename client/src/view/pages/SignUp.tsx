@@ -25,10 +25,7 @@ export class SignUp extends Component {
             this.setState({
                 ...this.state,
                 [e.target.id]: e.target.value,
-                // formData: {
-                //
 
-                // }
             });
             console.log(this.state)
         };
@@ -44,7 +41,7 @@ export class SignUp extends Component {
                 body: JSON.stringify(this.state),
             });
             const data = await res.json();
-            console.log(JSON.stringify(this.state));
+            console.log(data);
         };
 
         return (
