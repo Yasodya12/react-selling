@@ -3,6 +3,10 @@ import React, {ChangeEvent, Component, useState} from 'react';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import {SignIn} from "./SignIn";
 
+
+
+
+
 export class SignUp extends Component {
 
     constructor(props: {} | Readonly<{}>) {
@@ -61,12 +65,10 @@ export class SignUp extends Component {
                     return;
                 }
 
-
-
             this.setState({
                     loading:false,
+                    error:null
                 });
-
 
 
 
@@ -77,7 +79,7 @@ export class SignUp extends Component {
 
             <div className='p-3 max-w-lg mx-auto'>
                 <h1 className='text-3xl text-center font-semibold my-7'>Sign Up</h1>
-                <form  onSubmit={handleSubmit} className='flex flex-col gap-4'>
+                <form   className='flex flex-col gap-4'>
 
                     <input
                         type='text'
@@ -102,7 +104,7 @@ export class SignUp extends Component {
                     />
 
                     <button
-
+                        type={"button"}
 
                         onClick={handleSubmit}
                         className='bg-slate-700 text-white p-3 rounded-lg uppercase hover:opacity-95 disabled:opacity-80'

@@ -3,16 +3,18 @@ import jwt from 'jsonwebtoken';
 export const signup = async (req, res, next) => {
 
 
+    try {
+        console.log("up");
     const { username, email, password } = req.body;
 
     const newUser = new User({ username, email,password  });
 
-    try {
         await newUser.save();
         res.status(201).json('User created Successfully')
     }catch (error) {
-        // res.status(500).json(error);
-        // next(error);
+        console.log("awa")
+
+        next(error);
     }
 
     // const hashedPassword = bcryptjs.hashSync(password, 10);
@@ -28,6 +30,7 @@ export const signup = async (req, res, next) => {
 export const signin = async (req, res, next) => {
 
     const { email, password } = req.body;
+    console.log(res.body);
     let validPassword=false;
     try {
         const validUser = await User.findOne({ email });
@@ -38,13 +41,18 @@ export const signin = async (req, res, next) => {
         }
 
 
-        if (!validPassword) return next(errorHandler(401, 'Wrong credentials!'));
+        if (!validPassword){
+            console.log("if ek athule");
+            return next(errorHandler(401, 'Wrong credentials!'));
+        }
         const token = jwt.sign({ id: validUser._id }, '1234');
         const { password: pass, ...rest } = validUser._doc;
         res
             .cookie('access_token', token, { httpOnly: true })
             .status(200)
             .json(rest);
+
+        console.log("Hari")
     } catch (error) {
         next(error);
     }

@@ -12,6 +12,8 @@ import {SignIn} from "./view/pages/SignIn";
 import {CreateListing} from "./view/pages/CreateListing";
 import {UpdateList} from "./view/pages/UpdateList";
 import {Listing} from "./view/pages/Listing";
+import SignInII from "./view/pages/SignInII";
+import {SignUpII} from "./view/pages/SignUpII";
 
 
 function App() {
@@ -22,8 +24,8 @@ function App() {
           <Routes>
             <Route path="/" Component={Home}/>
               <Route path='/listing' element={<Listing />} />
-            <Route path="/sign-up" Component={SignUp}/>
-            <Route path="/sign-in" Component={SignIn} />
+            <Route path="/sign-up" Component={SignUpII}/>
+            <Route path="/sign-in" Component={SignInII} />
             <Route path="/about" Component={About}/>
             <Route path="/profile" Component={Profile}/>
               <Route path='/create-listing' Component={CreateListing } />
