@@ -43,7 +43,8 @@ export const signin = async (req, res, next) => {
 
         if (!validPassword){
             console.log("if ek athule");
-            return next(errorHandler(401, 'Wrong credentials!'));
+            return  next(errorHandler(401, 'Wrong credentials!'));
+
         }
         const token = jwt.sign({ id: validUser._id }, '1234');
         const { password: pass, ...rest } = validUser._doc;
