@@ -6,7 +6,7 @@ import {Home} from "./view/pages/Home";
 import {SignUp} from "./view/pages/SignUp";
 
 import {About} from "./view/pages/About";
-import {Profile} from "./view/pages/Profile";
+
 
 import {SignIn} from "./view/pages/SignIn";
 import {CreateListing} from "./view/pages/CreateListing";
@@ -16,6 +16,7 @@ import SignInII from "./view/pages/SignInII";
 import {SignUpII} from "./view/pages/SignUpII";
 import Header from "./view/components/Header";
 import {PrivateRoute} from "./view/components/PrivateRoute";
+import Profile from "./view/pages/Profile";
 
 
 function App() {
