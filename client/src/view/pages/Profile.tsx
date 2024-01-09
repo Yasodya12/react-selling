@@ -11,7 +11,7 @@ import {
     signOutUserStart,
 } from '../../redux/user/userSlice';
 import { useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 
 export default function Profile(){
     const fileRef = useRef(null);
@@ -26,6 +26,7 @@ export default function Profile(){
     const [showListingsError, setShowListingsError] = useState(false);
     const [userListings, setUserListings] = useState([]);
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     // useEffect(() => {
     //     if (file) {
@@ -98,6 +99,29 @@ export default function Profile(){
         }
     };
 
+    const handleDeleteUser = async () => {
+        try {
+            dispatch(deleteUserStart());
+            const res = await fetch(`http://localhost:4000/server/user/delete/${currentUser._id}`, {
+                method: 'DELETE',
+            });
+            const data = await res.json();
+            if (data.success === false) {
+                dispatch(deleteUserFailure(data.message));
+                return;
+            }
+            dispatch(deleteUserSuccess(data));
+        } catch (error) {
+            // @ts-ignore
+            dispatch(deleteUserFailure(error.message));
+        }
+    };
+
+    const handleSignOut = async () => {
+        navigate('/sign-in');
+    };
+
+
     return (
             <div className='p-3 max-w-lg mx-auto'>
                 <h1 className='text-3xl font-semibold text-center my-7'>Profile</h1>
@@ -158,12 +182,13 @@ export default function Profile(){
                 </form>
                 <div className='flex justify-between mt-5'>
         <span
-
+            onClick={handleDeleteUser}
             className='text-red-700 cursor-pointer'
         >
           Delete account
         </span>
-                    <span  className='text-red-700 cursor-pointer'>
+                    <span  onClick={handleSignOut}  className='text-red-700 cursor-pointer'>
+
           Sign out
         </span>
                 </div>
