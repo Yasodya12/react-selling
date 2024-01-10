@@ -9,7 +9,7 @@ import {About} from "./view/pages/About";
 
 
 import {SignIn} from "./view/pages/SignIn";
-import {CreateListing} from "./view/pages/CreateListing";
+
 import {UpdateList} from "./view/pages/UpdateList";
 import {Listing} from "./view/pages/Listing";
 import SignInII from "./view/pages/SignInII";
@@ -17,6 +17,7 @@ import {SignUpII} from "./view/pages/SignUpII";
 import Header from "./view/components/Header";
 import {PrivateRoute} from "./view/components/PrivateRoute";
 import Profile from "./view/pages/Profile";
+import {CreateListingII} from "./view/pages/CreateListingII";
 
 
 function App() {
@@ -32,7 +33,7 @@ function App() {
             <Route path="/about" Component={About}/>
               <Route element={<PrivateRoute />}>
                   <Route path='/profile' element={<Profile />} />
-                  <Route path='/create-listing' element={<CreateListing />} />
+                  <Route path='/create-listing' element={<CreateListingII />} />
 
               </Route>
           </Routes>
