@@ -10,14 +10,19 @@ import {About} from "./view/pages/About";
 
 import {SignIn} from "./view/pages/SignIn";
 
-import {UpdateList} from "./view/pages/UpdateList";
-import {Listing} from "./view/pages/Listing";
+
+
 import SignInII from "./view/pages/SignInII";
 import {SignUpII} from "./view/pages/SignUpII";
 import Header from "./view/components/Header";
 import {PrivateRoute} from "./view/components/PrivateRoute";
 import Profile from "./view/pages/Profile";
 import {CreateListingII} from "./view/pages/CreateListingII";
+import {UpdateListing} from "./view/pages/UpdateListing";
+import {Listing} from "./view/pages/Listing";
+
+
+
 
 
 function App() {
@@ -27,13 +32,18 @@ function App() {
           <Header/>
           <Routes>
             <Route path="/" Component={Home}/>
-              <Route path='/listing' element={<Listing />} />
+
             <Route path="/sign-up" Component={SignUpII}/>
             <Route path="/sign-in" Component={SignInII} />
             <Route path="/about" Component={About}/>
+              <Route path='/listing/:listingId' element={<Listing />} />
               <Route element={<PrivateRoute />}>
                   <Route path='/profile' element={<Profile />} />
                   <Route path='/create-listing' element={<CreateListingII />} />
+                  <Route
+                      path='/update-listing/:listingId'
+                      element={<UpdateListing />}
+                  />
 
               </Route>
           </Routes>
