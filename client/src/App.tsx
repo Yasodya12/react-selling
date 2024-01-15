@@ -20,6 +20,7 @@ import Profile from "./view/pages/Profile";
 import {CreateListingII} from "./view/pages/CreateListingII";
 import {UpdateListing} from "./view/pages/UpdateListing";
 import {Listing} from "./view/pages/Listing";
+import { Search } from "./view/pages/Search";
 
 
 
@@ -37,6 +38,7 @@ function App() {
             <Route path="/sign-in" Component={SignInII} />
             <Route path="/about" Component={About}/>
               <Route path='/listing/:listingId' element={<Listing />} />
+              <Route path='/search' element={<Search />} />
               <Route element={<PrivateRoute />}>
                   <Route path='/profile' element={<Profile />} />
                   <Route path='/create-listing' element={<CreateListingII />} />
