@@ -222,7 +222,7 @@ export function CreateListingII() {
                         id='name'
                         maxLength={62}
                         minLength={10}
-                        required
+                        required={true}
                         onChange={handleChange}
                         value={formData.name}
                     />
@@ -231,7 +231,7 @@ export function CreateListingII() {
                         placeholder='Description'
                         className='border p-3 rounded-lg'
                         id='description'
-                        required
+                        required={true}
                         onChange={handleChange}
                         value={formData.description}
                     />
@@ -240,7 +240,7 @@ export function CreateListingII() {
                         placeholder='Address'
                         className='border p-3 rounded-lg'
                         id='address'
-                        required
+                        required={true}
                         onChange={handleChange}
                         value={formData.address}
                     />
